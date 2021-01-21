@@ -89,4 +89,17 @@ public class TFIDF {
         documentsWithCurrentScore.add(document);
         scoreToDocuments.put(score, documentsWithCurrentScore);
     }
+
+    public static List<String> getWordsOfLine(String line) {
+        return Arrays.asList(line.split("(\\.)+|(,)+|( )+|(-)+|(\\?)+|(!)+|(;)+|(:)+|(/d)+|(/n)+"));
+    }
+
+    public static List<String> getWordsOfLines(List<String> lines) {
+        List<String> words = new ArrayList<>();
+        for (String line : lines) {
+            words.addAll(getWordsOfLine(line));
+        }
+
+        return words;
+    }
 }
